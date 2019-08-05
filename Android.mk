@@ -84,4 +84,9 @@ LOCAL_MODULE := miniafservice
 ifeq ($(strip $(MINIAF_32)), true)
 LOCAL_32_BIT_ONLY := true
 endif
+
+ifeq ($(ANDROID_MAJOR),$(filter $(ANDROID_MAJOR),7 8 9))
+LOCAL_INIT_RC := miniaf.rc
+endif
+
 include $(BUILD_EXECUTABLE)
